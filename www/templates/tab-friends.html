@@ -1,0 +1,36 @@
+<ion-view cache-view="false" view-title="BusOnly({{bus}}) + All({{all}}) + Beginner({{beginner}}) = Total({{total}})">
+    <ion-content>
+    <ion-item>
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search" ng-model="search.name" class="form-control" >
+        </label>
+    </ion-item>
+    <ion-list>
+      <ion-item ng-repeat="friend in filered = (friends | filter: {name:search.name})" type="item-text-wrap">
+          <div class="row">
+              <div class="col col-25">{{friend.name}}</div>
+              <div class="col col-25">{{friend.phone}}</div>
+              <div class="col col-10">{{friend.bookedVia.toLowerCase()}}</div>
+              <div class="col col-10">{{friend.liftTicket.toLowerCase()=='y'?'Lift':'Bus'}}</div>
+              <div class="col col-20">
+                  <select ng-options="ticket as ticket.name for ticket in tickets track by ticket.name"
+                          ng-model="friend.selectedTicket"
+                          ng-disabled="!friend.isPresent"
+                          ng-change="countAll()">
+                      <option value="">Ticket Type</option>
+                  </select>
+              </div>
+              <div class="col col-10">
+                  <label class="checkbox">
+                  <input type="checkbox"
+                         ng-model="friend.isPresent"
+                         ng-change="countAll()"
+                          />
+                  </label>
+              </div>
+          </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

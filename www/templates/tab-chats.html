@@ -1,0 +1,44 @@
+<ion-view cache-view="true" view-title="{{friend.description}}">
+  <ion-content>
+    <ion-list>
+        <div class="row">
+            <div class="col col-offset-25">
+                <img src="img/paragonLogo.jpg" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Destination</div>
+            <div class="col">{{friend.mountain}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Trip Date</div>
+            <div class="col">{{friend.date}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Roster Loaded </div>
+            <div class="col">{{loadedDateTime}}</div>
+        </div>
+        <div class="row">
+            <div class="col">LastModifiedDate</div>
+            <div class="col">{{lastModifiedDate}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Customers Loaded </div>
+            <div class="col">{{friendsCounter}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Customers Booked </div>
+            <div class="col">{{friend.busBooked}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Capacity </div>
+            <div class="col">{{friend.busCapacity}}</div>
+        </div>
+        <div class="row">
+                <input type="file" ng-model-instant id="inputFile"
+                    onchange="angular.element(this).scope().setFiles(this.files)"
+                    />
+        </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
