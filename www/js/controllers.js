@@ -5,6 +5,9 @@ angular.module('starter.controllers',  ['ngCordova'])
 .controller('FriendsCtrl', function($scope, Friends) {
   $scope.search = {name: ''};
   $scope.friends = Friends.all();
+  $scope.clearSearch = function(){
+      $scope.search.name='';
+  };
   $scope.countAll = function(){
       $scope.bus=0;$scope.beginner=0;$scope.all=0;$scope.total=0;
       for(var i=0;i<$scope.friends.length;i++){
